@@ -7,27 +7,33 @@
     <title>Document</title>
 </head>
 <body>
-    <div id="innhold">
-        <div id="knapp">
-            <img src="img/cat-clip-art-104.png" alt="" onclick="function1()">
+    <div id="innpakning">
+        <div id="header">
+
+        </div>
+
+        <div id="innhold">
+            <h1><h1 id="score">0</h1></h1>
+            <img onclick="function1()" id="imgsrc" src="img/1-54835901.png" alt=""
+            width="400"
+            height="350">
 
 
         </div>
+
         <h1></h1>
     </div>
     <script>
         var i = 0;
-        function function1() {
+        var x = 1;
+        var img = 1;
+        function function1() {   
+        i = i + x
 
-        }
-
-        document.getElementById("").onclick = function() {
-            i++
-        }
-
-        setInterval(function(){ 
-            
-        }, 300);
+    document.getElementById("score").innerHTML = i
+    document.getElementById("")
+}
     </script>
 </body>
+
 </html>
