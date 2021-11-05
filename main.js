@@ -36,3 +36,9 @@ function pwo() {
 
 
 
+<<<<<<< Updated upstream
+=======
+document.getElementById("score").innerHTML = i 
+document.getElementById("")
+}
+>>>>>>> Stashed changes
