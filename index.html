@@ -5,6 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <div id="innpakning">
@@ -13,15 +14,28 @@
         </div>
 
         <div id="innhold">
-            <h1><h1 id="score">0</h1></h1>
+            <h1><h1 id="score">Du har 0 penger!</h1></h1>
+            <h1><h1 id="testo">Du har 0 testosteron!</h1></h1>
             <img onclick="function1()" id="imgsrc" src="img/1-54835901.png" alt=""
             width="400"
             height="350">
 
-
+            <p id="Testosteron"></p>
         </div>
-
-        <h1></h1>
+        <div id="butikk">
+            <div class="vare">
+            <img src="/img/airpods.png" id="imgsrc" onclick="airpods()">
+            <p id="airpods_mld"></p>
+            </div>
+            <div class="vare">
+            <img onclick="protein()" src="/img/protein.png">
+            <p id="protein_mld"></p>
+            </div>
+            <div class="vare">
+            <img src="/img/pwo.png" alt="" onclick="pwo()">
+            <p id="pwo_mld"></p>
+            </div>
+        </div>
     </div>
     <script src="main.js"></script>
 </body>

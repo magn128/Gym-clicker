@@ -1,0 +1,22 @@
+* {
+    margin: 0;
+}
+
+.vare {
+    width: 210px;
+    height: 300px;
+    border: 1px solid black;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+
+img {
+    width: 200px;
+    height: 250px;
+}
+
+#butikk {
+    display: flex;
+    flex-wrap: wrap;
+}
