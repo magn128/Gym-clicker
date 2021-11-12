@@ -24,7 +24,7 @@ function protein() {
         testo = testo + 5
     }
     boughtp = true;
-    document.getElementById("protein_mld").innerHTML = "Du har kjøpt protein!";
+    document.getElementById("protein_mld").innerHTML = "Du har kjøpt protein pulver!";
 }
 function pwo() {
     if (boughtpw === false) {
@@ -36,9 +36,3 @@ function pwo() {
 
 
 
-<<<<<<< Updated upstream
-=======
-document.getElementById("score").innerHTML = i 
-document.getElementById("")
-}
->>>>>>> Stashed changes
