@@ -5,11 +5,11 @@ var testo = 0;
 var boughta = false;
 var boughtp = false;
 var boughtpw = false;
-function function1() {   
-i = i + x + testo;
 
-document.getElementById("score").innerHTML = "Du har " + i + " penger!"
-document.getElementById("testo").innerHTML = "Du har " + testo + " testosteron!"
+function function1() {   
+    i = i + x + testo;
+
+    
 }
 
 function airpods() {
@@ -34,5 +34,9 @@ function pwo() {
     document.getElementById("pwo_mld").innerHTML = "Du har kjøpt PWO!";
 }
 
-
-
+setInterval(function(){
+    document.getElementById("score").innerHTML = "Du har " + i + " penger!";
+    document.getElementById("testo").innerHTML = "Du har " + testo + " testosteron!";
+    
+    //clicks++;
+}, 10);
