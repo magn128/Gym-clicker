@@ -82,4 +82,8 @@ setInterval(function(){
     document.getElementById("airpods_pris").innerHTML = airpods_pris;
 
 }, 1000);
+setInterval(function() {
+
+
+}, 1000);
 
