@@ -12,7 +12,7 @@ var protein_pris = 500;
 var airpods_pris = 1500;
 var roids_pris = 5000;
 var passiv = 0;
-var roids_power = 0;
+var power = 0;
 
 
 window.onload = function load() {
@@ -35,7 +35,7 @@ window.onload = function load() {
          roids_pris = parseInt(localStorage.getItem("roids_pris"));
          passiv = parseInt(localStorage.getItem("passiv"));
          boughtr = parseInt(localStorage.getItem("boughtr"));
-        roids_power = parseInt(localStorage.getItem("roids_power"));
+        power = parseInt(localStorage.getItem("power"));
         console.log("Loaded!");
  }
   }
@@ -59,7 +59,7 @@ window.onload = function load() {
       localStorage.setItem("airpods_pris", airpods_pris);
       localStorage.setItem("roids_pris", roids_pris);
       localStorage.setItem("passiv", passiv);
-      localStorage.setItem("roids_power", roids_power);
+      localStorage.setItem("power", power);
   
       console.log("Saved");
   
@@ -78,7 +78,7 @@ function reset() {
     airpods_pris = 1500;
     roids_pris = 5000;
     passiv = 0;
-    roids_power = 0;
+    power = 0;
     localStorage.setItem("saved", version);
       localStorage.setItem("penger", penger);
       localStorage.setItem("x", x);
@@ -93,7 +93,7 @@ function reset() {
       localStorage.setItem("airpods_pris", airpods_pris);
       localStorage.setItem("roids_pris", roids_pris);
       localStorage.setItem("passiv", passiv);
-      localStorage.setItem("roids_power", roids_power);
+      localStorage.setItem("power", power);
     window.location.reload();
 }
 
@@ -153,7 +153,7 @@ function roids(){
             penger = penger - roids_pris
             roids_pris*= 2;
             testo += 10;
-            roids_power += 10
+            power += 10
             document.getElementById("roids_mld").innerHTML = "Du har kjøpt roids!";
         }
 }
@@ -176,7 +176,7 @@ setInterval(function(){
 
 }, 10);
 setInterval(function() {
-    penger += roids_power
+    penger += power
 
 }, 1000);
 
