@@ -1,4 +1,4 @@
-var version = 3;
+var version = 4;
 var penger = 0;
 var x = 1;
 var img = 1;
@@ -14,7 +14,34 @@ var roids_pris = 5000;
 var passiv = 0;
 var power = 0;
 
+setInterval(function () {
+    var sjanse = 1
 
+    if (sjanse <= 10) {
+        random_plassering = Math.floor(Math.random() * (3 - 1 + 1)) + 1;
+        if (random_plassering === 1) {
+            document.getElementById("1").innerHTML = '<img onclick="golden_dumbell()" src="/img/golden_dumbell.png" alt="">'
+        } else if (random_plassering === 2) {
+            document.getElementById("1").innerHTML = '<img onclick="golden_dumbell()" src="/img/golden_dumbell.png" alt="">'
+        } else if (random_plassering === 3) {
+            document.getElementById("1").innerHTML = '<img onclick="golden_dumbell()" src="/img/golden_dumbell.png" alt="">'
+        } else {
+            document.write("error 404")
+        }
+    }
+}, 5000)
+
+function golden_dumbell() {
+    var random_peng = Math.floor(Math.random() * (500 - 100 + 1)) + 100;
+    penger = penger + random_peng;
+    if (random_plassering === 1) {
+        document.getElementById("1").innerHTML = '<p>Du fikk <b>' + random_peng + '</b> penger!</p>'
+    } else if (random_plassering === 2) {
+        document.getElementById("2").innerHTML = '<p>Du fikk <b>' + random_peng + '</b> penger!</p>'
+    } else if (random_plassering === 3) {
+        document.getElementById("3").innerHTML = '<p>Du fikk <b>' + random_peng + '</b> penger!</p>'
+    }
+}
 
 window.onload = function load() {
     if(parseInt(localStorage.getItem("saved")) === version){
@@ -80,6 +107,7 @@ function reset() {
     roids_pris = 5000;
     passiv = 0;
     power = 0;
+    
     localStorage.setItem("saved", version);
       localStorage.setItem("penger", penger);
       localStorage.setItem("x", x);
