@@ -15,6 +15,7 @@ var passiv = 0;
 var power = 0;
 
 
+
 window.onload = function load() {
     if(parseInt(localStorage.getItem("saved")) === version){
     if(localStorage.getItem("saved") !== null){
@@ -27,7 +28,7 @@ window.onload = function load() {
          img = parseInt(localStorage.getItem("img"));
          testo = parseInt(localStorage.getItem("testo"));
          boughta = parseInt(localStorage.getItem("boughta"));
-         boughtp = parseInt(localStorage.getItem("bougthp"));
+         boughtp = parseInt(localStorage.getItem("boughtp"));
          boughtpw = parseInt(localStorage.getItem("boughtpw"));
          pwo_pris = parseInt(localStorage.getItem("pwo_pris"));
          protein_pris = parseInt(localStorage.getItem("protein_pris"));
@@ -124,7 +125,7 @@ function protein() {
             penger = penger - protein_pris
             protein_pris *= 1.1;
             testo += 10;
-            boughtp = 1;
+            boughtp += 1;
             document.getElementById("protein_mld").innerHTML = "Du har kjøpt protein pulver!";
             new Audio("sound/protein.mp3").play();
         }
