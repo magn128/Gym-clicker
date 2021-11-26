@@ -13,10 +13,24 @@ var airpods_pris = 1500;
 var roids_pris = 5000;
 var passiv = 0;
 var power = 0;
+var gold_dumbbell = false;
 
 setInterval(function () {
     var sjanse = 1
-
+    // Kopiert fra StackOverflow
+    var myNode = document.getElementById("1");
+        while (myNode.firstChild) {
+                myNode.removeChild(myNode.lastChild);
+                }
+    var myNode = document.getElementById("2");
+        while (myNode.firstChild) {
+                myNode.removeChild(myNode.lastChild);
+            }
+    var myNode = document.getElementById("3");
+        while (myNode.firstChild) {
+                myNode.removeChild(myNode.lastChild);
+            }
+    // Kopiert fra StackOverflow
     if (sjanse <= 10) {
         random_plassering = Math.floor(Math.random() * (3 - 1 + 1)) + 1;
         if (random_plassering === 1) {
