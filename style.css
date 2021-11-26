@@ -8,6 +8,7 @@
 }
 body {
     overflow: hidden;
+    
 
 }
 #innhold {
@@ -35,10 +36,27 @@ body {
     justify-content: center;
     flex-direction: column;
     display: flex;
-    
+    position: relative;
+    display: inline-block;
+    border-bottom: 1px dotted black;
 
 }
-
+.vare .tooltiptext {
+    visibility: hidden;
+    width: 120px;
+    background-color: black;
+    color: #fff;
+    text-align: center;
+    border-radius: 6px;
+    padding: 5px 0;
+    position: absolute;
+    z-index: 1;
+    top: -5px;
+    right: 105%;
+}
+.vare:hover .tooltiptext {
+    visibility: visible;
+  }
 img {
     width: 200px;
     height: 250px;
@@ -48,6 +66,7 @@ img {
     display: flex;
     flex-direction: column;
     width: 260px;
+    height: 100%;
     overflow: scroll;
     overflow-x: hidden;
 }
@@ -66,4 +85,9 @@ img {
 
 #golden {
     color: gold;
+}
+
+
+#formue {
+    color: purple;
 }
