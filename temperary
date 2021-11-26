@@ -1,0 +1,21 @@
+function sarms() {
+    
+    if (penger >= sarms_pris) {
+        penger = penger - sarms_pris
+        sarms_pris *= 1.5;
+        testo += 10;
+        boughtsarms += 1;
+        power = boughtsarms *20;
+        document.getElementById("sarms_mld".innerHTML = "Du har kjøpt sarms!")
+        new Audio("sound/").play();
+    }
+}
+
+
+var sarms_pris = 200000;
+
+var boughtsarms = 0;
+
+    document.getElementById("sarms_mengde").innerHTML = Math.floor(boughtsarms)
+
+        document.getElementById("sarms_pris").innerHTML = Math.floor(sarms_pris)

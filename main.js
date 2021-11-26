@@ -7,10 +7,14 @@ var boughta = 0;
 var boughtp = 0;
 var boughtpw = 0;
 var boughtr = 0;
+var boughtbelt = 0;
+var boughtsarms = 0;
 var pwo_pris = 100;
 var protein_pris = 500;
 var airpods_pris = 1500;
 var roids_pris = 5000;
+var belte_pris = 100000;
+var sarms_pris = 200000;
 var passiv = 0;
 var power = 0;
 var gold_dumbbell = false;
@@ -83,6 +87,7 @@ function golden_dumbell() {
     }
 }
 // Fredrik hjalp med dette
+
 window.onload = function load() {
     if(parseInt(localStorage.getItem("saved")) === version){
     if(localStorage.getItem("saved") !== null){
@@ -100,9 +105,11 @@ window.onload = function load() {
          pwo_pris = parseInt(localStorage.getItem("pwo_pris"));
          protein_pris = parseInt(localStorage.getItem("protein_pris"));
          airpods_pris = parseInt(localStorage.getItem("airpods_pris"));
+         belte_pris = parseInt(localStorage.getItem("belte_pris"));
          roids_pris = parseInt(localStorage.getItem("roids_pris"));
          passiv = parseInt(localStorage.getItem("passiv"));
          boughtr = parseInt(localStorage.getItem("boughtr"));
+         boughtbelt = parseInt(localStorage.getItem("boughtbelt"));
         power = parseInt(localStorage.getItem("power"));
         console.log("Loaded!");
  }
@@ -122,6 +129,8 @@ window.onload = function load() {
       localStorage.setItem("boughtp", boughtp);
       localStorage.setItem("boughtpw", boughtpw);
       localStorage.setItem("boughtr", boughtr);
+      localStorage.setItem("boughtbelt", boughtbelt);
+      localStorage.setItem("belte_pris", belte_pris);
       localStorage.setItem("pwo_pris", pwo_pris);
       localStorage.setItem("protein_pris", protein_pris);
       localStorage.setItem("airpods_pris", airpods_pris);
@@ -141,10 +150,12 @@ function reset() {
     boughtp = 0;
     boughtpw = 0;
     boughtr = 0;
+    boughtbelt = 0;
     pwo_pris = 100;
     protein_pris = 500;
     airpods_pris = 1500;
     roids_pris = 5000;
+    belte_pris = 100000;
     passiv = 0;
     power = 0;
     
@@ -157,10 +168,12 @@ function reset() {
       localStorage.setItem("boughtp", boughtp);
       localStorage.setItem("boughtpw", boughtpw);
       localStorage.setItem("boughtr", boughtr);
+      localStorage.setItem("boughtbelt", boughtbelt);
       localStorage.setItem("pwo_pris", pwo_pris);
       localStorage.setItem("protein_pris", protein_pris);
       localStorage.setItem("airpods_pris", airpods_pris);
       localStorage.setItem("roids_pris", roids_pris);
+      localStorage.setItem("belte_pris", belte_pris)
       localStorage.setItem("passiv", passiv);
       localStorage.setItem("power", power);
     window.location.reload();
@@ -178,8 +191,8 @@ function airpods() {
 
         if (penger >= airpods_pris) {
             penger = penger - airpods_pris
-            airpods_pris *= 2;
-            testo += 20;
+            airpods_pris *= 1.3;
+            testo += 50;
             boughta += 1;
             document.getElementById("airpods_mld").innerHTML = "Du har kjøpt airpods!";
             new Audio("sound/pump.mp3").play();
@@ -225,8 +238,37 @@ function roids(){
             boughtr += 1;
             power = boughtr *12;
             document.getElementById("roids_mld").innerHTML = "Du har kjøpt roids!";
+            new Audio("sound/").play();
         }
 }
+function belte() {
+
+    if (penger >= belte_pris) {
+        penger = penger - belte_pris
+        belte_pris *= 1.3;
+        testo += 500;
+        boughtbelt += 1;
+        document.getElementById("belte_mld").innerHTML = "Du har kjøpt belte!";
+        new Audio("sound/").play();
+    }
+}
+
+function sarms() {
+    
+    if (penger >= sarms_pris) {
+        penger = penger - sarms_pris
+        sarms_pris *= 1.5;
+        testo += 10;
+        boughtsarms += 1;
+        power = boughtsarms *20;
+        document.getElementById("sarms_mld".innerHTML = "Du har kjøpt sarms!")
+        new Audio("sound/").play();
+    }
+}
+
+
+
+
 
 setInterval(function(){
     document.getElementById("score").innerHTML = "Du har " + Math.floor(penger) + " penger!";
@@ -239,10 +281,14 @@ setInterval(function(){
     document.getElementById("protein_pris").innerHTML = Math.floor(protein_pris);
     document.getElementById("airpods_pris").innerHTML = Math.floor(airpods_pris);
     document.getElementById("roids_pris").innerHTML = Math.floor(roids_pris)
+    document.getElementById("belte_pris").innerHTML = Math.floor(belte_pris)
+    document.getElementById("sarms_pris").innerHTML = Math.floor(sarms_pris)
     document.getElementById("pwo_mengde").innerHTML = Math.floor(boughtpw)
     document.getElementById("protein_mengde").innerHTML = Math.floor(boughtp)
     document.getElementById("airpods_mengde").innerHTML = Math.floor(boughta)
     document.getElementById("roids_mengde").innerHTML = Math.floor(boughtr)
+    document.getElementById("belte_mengde").innerHTML = Math.floor(boughtbelt)
+    document.getElementById("sarms_mengde").innerHTML = Math.floor(boughtsarms)
 
 }, 10);
 setInterval(function() {
