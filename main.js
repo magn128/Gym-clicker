@@ -14,14 +14,22 @@ var roids_pris = 5000;
 var passiv = 0;
 var power = 0;
 var gold_dumbbell = false;
+var max = 0;
+var min = 0;
 
+
+// Fredrik hjalp med dette
 setInterval(function () {
-    var sjanse = 1
+    var sjanse = Math.floor((Math.random() * 100) + 1);
     // Kopiert fra StackOverflow
     var myNode = document.getElementById("1");
         while (myNode.firstChild) {
                 myNode.removeChild(myNode.lastChild);
                 }
+    var myNode = document.getElementById("golden");
+    while (myNode.firstChild) {
+            myNode.removeChild(myNode.lastChild);
+            }
     var myNode = document.getElementById("2");
         while (myNode.firstChild) {
                 myNode.removeChild(myNode.lastChild);
@@ -32,6 +40,7 @@ setInterval(function () {
             }
     // Kopiert fra StackOverflow
     if (sjanse <= 10) {
+        gold_dumbbell = false;
         random_plassering = Math.floor(Math.random() * (3 - 1 + 1)) + 1;
         if (random_plassering === 1) {
             document.getElementById("1").innerHTML = '<img onclick="golden_dumbell()" src="/img/golden_dumbell.png" alt="">'
@@ -42,21 +51,38 @@ setInterval(function () {
         } else {
             document.write("error 404")
         }
+    } else {
+        console.log(sjanse)
     }
 }, 5000)
 
 function golden_dumbell() {
-    var random_peng = Math.floor(Math.random() * (500 - 100 + 1)) + 100;
-    penger = penger + random_peng;
-    if (random_plassering === 1) {
-        document.getElementById("1").innerHTML = '<p>Du fikk <b>' + random_peng + '</b> penger!</p>'
-    } else if (random_plassering === 2) {
-        document.getElementById("2").innerHTML = '<p>Du fikk <b>' + random_peng + '</b> penger!</p>'
-    } else if (random_plassering === 3) {
-        document.getElementById("3").innerHTML = '<p>Du fikk <b>' + random_peng + '</b> penger!</p>'
+    max = Math.floor(penger / 3)
+    min = Math.floor(penger / 10)
+    if (gold_dumbbell) {
+
+    } else {
+        var random_peng = Math.floor(Math.random() * (max - min + 1)) + min;
+        penger = penger + random_peng;
+        // Kopiert fra StackOverflow
+        var myNode = document.getElementById("1");
+        while (myNode.firstChild) {
+                myNode.removeChild(myNode.lastChild);
+                }
+        var myNode = document.getElementById("2");
+            while (myNode.firstChild) {
+                    myNode.removeChild(myNode.lastChild);
+                }
+        var myNode = document.getElementById("3");
+            while (myNode.firstChild) {
+                    myNode.removeChild(myNode.lastChild);
+                }
+        // Kopiert fra StackOverflow
+        document.getElementById("golden").innerHTML = "Du tjente <b>" + random_peng + "</b> penger!";
+        gold_dumbbell = true;
     }
 }
-
+// Fredrik hjalp med dette
 window.onload = function load() {
     if(parseInt(localStorage.getItem("saved")) === version){
     if(localStorage.getItem("saved") !== null){
@@ -194,9 +220,10 @@ function roids(){
 
         if ( penger >= roids_pris) {
             penger = penger - roids_pris
-            roids_pris*= 2;
+            roids_pris*= 1.5;
             testo += 10;
-            power += 10
+            boughtr += 1;
+            power = boughtr *12;
             document.getElementById("roids_mld").innerHTML = "Du har kjøpt roids!";
         }
 }
