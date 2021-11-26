@@ -14,14 +14,21 @@ var roids_pris = 5000;
 var passiv = 0;
 var power = 0;
 var gold_dumbbell = false;
+var max = 0;
+var min = 0;
 
 setInterval(function () {
-    var sjanse = 1
+    //var sjanse = Math.floor((Math.random() * 100) + 1);
+    var sjanse = 1;
     // Kopiert fra StackOverflow
     var myNode = document.getElementById("1");
         while (myNode.firstChild) {
                 myNode.removeChild(myNode.lastChild);
                 }
+    var myNode = document.getElementById("golden");
+    while (myNode.firstChild) {
+            myNode.removeChild(myNode.lastChild);
+            }
     var myNode = document.getElementById("2");
         while (myNode.firstChild) {
                 myNode.removeChild(myNode.lastChild);
@@ -43,14 +50,18 @@ setInterval(function () {
         } else {
             document.write("error 404")
         }
+    } else {
+        console.log(sjanse)
     }
 }, 5000)
 
 function golden_dumbell() {
+    max = Math.floor(penger / 2);
+    min = Math.floor(penger / 10);
     if (gold_dumbbell) {
 
     } else {
-        var random_peng = Math.floor(Math.random() * (500 - 100 + 1)) + 100;
+        var random_peng = Math.floor(Math.random() * (max - min + 1)) + min;
         penger = penger + random_peng;
         // Kopiert fra StackOverflow
         var myNode = document.getElementById("1");
