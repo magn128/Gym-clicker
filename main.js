@@ -25,6 +25,7 @@ var power = 0;
 var gold_dumbbell = false;
 var max = 0;
 var min = 0;
+var roids_fare = 0;
 
 
 
@@ -272,9 +273,13 @@ function roids(){
             roids_pris*= 1.2;
             testo += 10;
             boughtroids += 1;
+            roids_fare += 1;
             power = boughtroids *12;
             document.getElementById("roids_mld").innerHTML = "Du har kjøpt roids!";
             new Audio("sound/").play();
+        }
+        if (boughtroids >= 25) {
+            
         }
 }
 function belte() {
@@ -282,7 +287,7 @@ function belte() {
     if (penger >= belte_pris) {
         penger = penger - belte_pris
         belte_pris *= 1.3;
-        testo += 500;
+        testo += 7500;
         boughtbelt += 1;
         document.getElementById("belte_mld").innerHTML = "Du har kjøpt belte!";
         new Audio("sound/").play();
