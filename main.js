@@ -11,6 +11,7 @@ var boughtroids = 0;
 var boughtbelt = 0;
 var boughtsarms = 0;
 var boughtsleeves = 0;
+var boughtcreatine = 0;
 var pwo_pris = 100;
 var protein_pris = 500;
 var airpods_pris = 1500;
@@ -18,6 +19,7 @@ var roids_pris = 5000;
 var belte_pris = 100000;
 var sarms_pris = 200000;
 var sleeves_pris = 1000000;
+var creatine_pris = 2000000;
 var passiv = 0;
 var power = 0;
 var gold_dumbbell = false;
@@ -108,6 +110,7 @@ window.onload = function load() {
             boughta = parseInt(localStorage.getItem("boughta"));
             boughtp = parseInt(localStorage.getItem("boughtp"));
             boughtpw = parseInt(localStorage.getItem("boughtpw"));
+            boughtcreatine = parseInt(localStorage.getItem("boughtcreatine"));
             pwo_pris = parseInt(localStorage.getItem("pwo_pris"));
             protein_pris = parseInt(localStorage.getItem("protein_pris"));
             airpods_pris = parseInt(localStorage.getItem("airpods_pris"));
@@ -115,6 +118,7 @@ window.onload = function load() {
             roids_pris = parseInt(localStorage.getItem("roids_pris"));
             sarms_pris = parseInt(localStorage.getItem("sarms_pris"));
             sleeves_pris = parseInt(localStorage.getItem("sleeves_pris"));
+            creatine_pris = parseInt(localStorage.getItem("creatine_pris"));
             passiv = parseInt(localStorage.getItem("passiv"));
             boughtroids = parseInt(localStorage.getItem("boughtroids"));
             boughtbelt = parseInt(localStorage.getItem("boughtbelt"));
@@ -143,6 +147,7 @@ window.onload = function load() {
       localStorage.setItem("boughtbelt", boughtbelt);
       localStorage.setItem("boughtsarms", boughtsarms);
       localStorage.setItem("boughtsleeves", boughtsleeves);
+      localStorage.setItem("boughtcreatine", boughtcreatine);
       localStorage.setItem("belte_pris", belte_pris);
       localStorage.setItem("pwo_pris", pwo_pris);
       localStorage.setItem("protein_pris", protein_pris);
@@ -150,6 +155,7 @@ window.onload = function load() {
       localStorage.setItem("roids_pris", roids_pris);
       localStorage.setItem("sarms_pris", sarms_pris);
       localStorage.setItem("sleeves_pris", sleeves_pris);
+      localStorage.setItem("creatine_pris", creatine_pris);
       localStorage.setItem("passiv", passiv);
       localStorage.setItem("power", power);
   
@@ -169,6 +175,7 @@ function reset() {
     boughtbelt = 0;
     boughtsarms = 0;
     boughtsleeves = 0;
+    boughtcreatine = 0;
     pwo_pris = 100;
     protein_pris = 500;
     airpods_pris = 1500;
@@ -176,6 +183,7 @@ function reset() {
     belte_pris = 100000;
     sarms_pris = 200000;
     sleeves_pris = 1000000;
+    creatine_pris = 2000000;
     passiv = 0;
     power = 0;
     
@@ -192,6 +200,7 @@ function reset() {
     localStorage.setItem("boughtbelt", boughtbelt);
     localStorage.setItem("boughtsarms", boughtsarms);
     localStorage.setItem("boughtsleeves", boughtsleeves);
+    localStorage.setItem("boughtcreatine", boughtcreatine);
     localStorage.setItem("pwo_pris", pwo_pris);
     localStorage.setItem("protein_pris", protein_pris);
     localStorage.setItem("airpods_pris", airpods_pris);
@@ -199,6 +208,7 @@ function reset() {
     localStorage.setItem("belte_pris", belte_pris);
     localStorage.setItem("sarms_pris", sarms_pris);
     localStorage.setItem("sleeves_pris", sleeves_pris);
+    localStorage.setItem("creatine_pris", creatine_pris);
     localStorage.setItem("passiv", passiv);
     localStorage.setItem("power", power);
     window.location.reload();
@@ -304,6 +314,19 @@ function sleeves() {
     }
 }
 
+function creatine(){
+
+    if ( penger >= creatine_pris) {
+        penger = penger - creatine_pris
+        creatine_pris*= 1.2;
+        testo += 10;
+        boughtcreatine += 1;
+        power = boughtcreatine *10000;
+        document.getElementById("creatine_mld").innerHTML = "Du har kjøpt Creatin!";
+        new Audio("sound/").play();
+    }
+}
+
 setInterval(function(){
     document.getElementById("score").innerHTML = "Du har " + Math.floor(penger) + " penger!";
     document.getElementById("testo").innerHTML = "Du har " + Math.floor(testo) + " testosteron!";
@@ -312,12 +335,13 @@ setInterval(function(){
 }, 10);
 setInterval(function(){
     document.getElementById("pwo_pris").innerHTML = Math.floor(pwo_pris);
-    document.getElementById("protein_pris").innerHTML = Math.floor(protein_pris);
-    document.getElementById("airpods_pris").innerHTML = Math.floor(airpods_pris);
+    document.getElementById("protein_pris").innerHTML = Math.floor(protein_pris)
+    document.getElementById("airpods_pris").innerHTML = Math.floor(airpods_pris)
     document.getElementById("roids_pris").innerHTML = Math.floor(roids_pris)
     document.getElementById("belte_pris").innerHTML = Math.floor(belte_pris)
     document.getElementById("sarms_pris").innerHTML = Math.floor(sarms_pris)
     document.getElementById("sleeves_pris").innerHTML = Math.floor(sleeves_pris)
+    document.getElementById("creatine_pris").innerHTML = Math.floor(creatine_pris)
     document.getElementById("pwo_mengde").innerHTML = Math.floor(boughtpw)
     document.getElementById("protein_mengde").innerHTML = Math.floor(boughtp)
     document.getElementById("airpods_mengde").innerHTML = Math.floor(boughta)
@@ -325,6 +349,7 @@ setInterval(function(){
     document.getElementById("belte_mengde").innerHTML = Math.floor(boughtbelt)
     document.getElementById("sarms_mengde").innerHTML = Math.floor(boughtsarms)
     document.getElementById("sleeves_mengde").innerHTML = Math.floor(boughtsleeves)
+    document,getElementById("creatine_mengde").innerHTML = Math.floor(boughtcreatine)
 
 }, 10);
 setInterval(function() {

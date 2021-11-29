@@ -36,27 +36,10 @@ body {
     justify-content: center;
     flex-direction: column;
     display: flex;
-    position: relative;
-    display: inline-block;
-    border-bottom: 1px dotted black;
+
 
 }
-.vare .tooltiptext {
-    visibility: hidden;
-    width: 120px;
-    background-color: black;
-    color: #fff;
-    text-align: center;
-    border-radius: 6px;
-    padding: 5px 0;
-    position: absolute;
-    z-index: 1;
-    top: -5px;
-    right: 105%;
-}
-.vare:hover .tooltiptext {
-    visibility: visible;
-  }
+
 img {
     width: 200px;
     height: 250px;
@@ -82,6 +65,16 @@ img {
 #roids_mengde {
     font-weight: bold;
 }
+#sarms_mengde {
+    font-family: bold;
+}
+#sleeves_mengde {
+    font-family: bold;
+}
+#creatine_mengde {
+    font-family: bold;
+}
+
 
 #golden {
     color: gold;
