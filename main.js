@@ -1,3 +1,4 @@
+// Her defineres variabler
 var version = 4;
 var penger = 0;
 var formue = 0;
@@ -27,8 +28,10 @@ var max = 0;
 var min = 0;
 var roids_fare = 0;
 
+// Her defineres variabler
 
 
+// Golden dumbbell
 // Fredrik hjalp med dette
 setInterval(function () {
     var sjanse = Math.floor((Math.random() * 100) + 1);
@@ -95,7 +98,10 @@ function golden_dumbell() {
     }
 }
 // Fredrik hjalp med dette
+// Golden dumbbell
 
+
+// Lagring
 window.onload = function load() {
     if(parseInt(localStorage.getItem("saved")) === version){
     if(localStorage.getItem("saved") !== null){
@@ -163,6 +169,9 @@ window.onload = function load() {
       console.log("Saved");
   
   }
+// Lagring
+
+// Reset
 function reset() {
     penger = 0;
     formue = 0;
@@ -215,7 +224,10 @@ function reset() {
     window.location.reload();
 }
 
-function function1() {   
+// Reset
+
+// klikk funksjon
+function klikk() {   
     penger = penger + x + testo;
     formue = formue + x + testo;
     new Audio("sound/Recording (3).m4a").play();
@@ -224,6 +236,7 @@ function function1() {
 
 }
 
+// Butikk funskjoner
 function airpods() {
 
         if (penger >= airpods_pris) {
@@ -279,6 +292,9 @@ function roids(){
             new Audio("sound/").play();
         }
         if (boughtroids >= 25) {
+            power = boughtroids *100
+        }
+        if (roids_fare >= 20) {
             
         }
 }
@@ -331,13 +347,16 @@ function creatine(){
         new Audio("sound/").play();
     }
 }
+// Butikk funskjoner //
+
 
 setInterval(function(){
     document.getElementById("score").innerHTML = "Du har " + Math.floor(penger) + " penger!";
     document.getElementById("testo").innerHTML = "Du har " + Math.floor(testo) + " testosteron!";
     document.getElementById("formue").innerHTML = "Du har tjent " + Math.floor(formue) + " penger i karrieren din!"
-    //clicks++;
 }, 10);
+// Kjøres hvert millisekund
+
 setInterval(function(){
     document.getElementById("pwo_pris").innerHTML = Math.floor(pwo_pris);
     document.getElementById("protein_pris").innerHTML = Math.floor(protein_pris)
@@ -354,11 +373,14 @@ setInterval(function(){
     document.getElementById("belte_mengde").innerHTML = Math.floor(boughtbelt)
     document.getElementById("sarms_mengde").innerHTML = Math.floor(boughtsarms)
     document.getElementById("sleeves_mengde").innerHTML = Math.floor(boughtsleeves)
-    document,getElementById("creatine_mengde").innerHTML = Math.floor(boughtcreatine)
+    document.getElementById("creatine_mengde").innerHTML = Math.floor(boughtcreatine)
 
 }, 10);
+// Kjøres hvert millisekund
 setInterval(function() {
     penger += power
     formue += power
 
 }, 1000);
+// Kjøres hvert sekund
+
