@@ -31,10 +31,11 @@
                 <h1><h1 id="testo">Du har 0 testosteron!</h1></h1>
                 <h1><h1 id="formue">Du har tjent 0 penger!</h1></h1>
                 <button id="reset" onclick="reset()">reset</button>
+                <div id="bilde">
                 <img onclick="klikk()" id="img" src="img/1-54835901.png" alt=""
                 width="400"
                 height="350">
-
+                </div>
                 <p id="Testosteron"></p>
                 <p id="golden"></p>
                 
@@ -47,10 +48,14 @@
                 </div>
             </div>
             <div id="butikk">
+
+                
                 
                 <div class="vare">
+                    <img src="img/gladiator.png" class="imgsrc" onclick="pwo()">
                   
-                    <img src="/img/gladiator.png" class="imgsrc" onclick="pwo()">
+                    <span class="tooltiptext">Dette er Pre Workout. Det gir deg mer testosteron og hjelper med treningen    </span>
+                  
                     <p id="pwo_mld"></p>
                     <p id="pwo_pris"></p>
                     <p id="pwo_mengde"></p>
@@ -58,37 +63,50 @@
                 </div>
                 <div class="vare">
                     <img  src="/img/protein1.png" class="imgsrc" onclick="protein()">
+                    <span class="tooltiptext">Dette er Protein pulver. Det gir deg mer testosteron og hjelper med treningen</span>
                     <p id="protein_mld"></p>
                     <p id="protein_pris"></p>
                     <p id="protein_mengde"></p>
                 </div>
                 <div class="vare">
                     <img src="/img/airpodsp.png" class="imgsrc" onclick="airpods()">
+                    <span class="tooltiptext">Dette er Airpods. Det gir deg mer testosteron og hjelper med treningen</span>
                     <p id="airpods_mld"></p>
                     <p id="airpods_pris"></p>
                     <p id="airpods_mengde"></p>
                 </div>
                 <div class="vare">
                     <img src="img/roids.png" class="imgsrc" onclick="roids()">
+                    <span class="tooltiptext">Dette er sterioder. Det gir deg mer testosteron og gir deg passiv inntekt</span>
                     <p id="roids_mld"></p>
                     <p id="roids_pris"></p>
                     <p id="roids_mengde"></p>
                 </div>
                 <div class="vare">
                     <img src="img/sbd.png" class="imgsrc" onclick="belte()">
+                    <span class="tooltiptext">Dette er et belte. Det gir deg mer testosteron og hjelper med treningen</span>
                     <p id="belte_mld"></p>
                     <p id="belte_pris"></p>
                     <p id="belte_mengde"></p>
                 </div>
-                
+                <div class="vare" id="2kg">
+                    <img src="img/kg2.png" class="imgsrc" onclick="tokg()">
+                    <span class="tooltiptext">Dette er en to kilos vekt. Det gir deg mer testosteron og dobbler den passive inntekten din</span>
+                    <p id="2kg_mld"></p>
+                    <p id="2kg_pris"></p>
+
+
+                </div>
                 <div class="vare">
                     <img src="img/sarms.png" class="imgsrc" onclick="sarms()">
+                    <span class="tooltiptext">Dette er sarms. Det gir deg mer testosteron og gir deg passiv inntekt</span>
                     <p id="sarms_mld"></p>
                     <p id="sarms_pris"></p>
                     <p id="sarms_mengde"></p>
                 </div>
                 <div class="vare">
                     <img src="img/knee_sleves.png" class="imgsrc" onclick="sleeves()">
+                    <span class="tooltiptext">Dette er knee sleeves. Det gir deg mer testosteron og hjelper med treningen</span>
                     <p id="sleeves_mld"></p>
                     <p id="sleeves_pris"></p>
                     <p id="sleeves_mengde"></p>
@@ -96,6 +114,7 @@
                 </div>
                 <div class="vare">
                     <img src="img/Creatine.png" class="imgsrc" onclick="creatine()">
+                    <span class="tooltiptext">Dette er kreatin. Det gir deg mer testosteron og gir deg passiv inntekt</span>
                     <p id="creatine_mld"></p>
                     <p id="creatine_pris"></p>
                     <p id="creatine_mengde"></p>

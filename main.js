@@ -13,6 +13,7 @@ var boughtbelt = 0;
 var boughtsarms = 0;
 var boughtsleeves = 0;
 var boughtcreatine = 0;
+var bought2kg = 0;
 var pwo_pris = 100;
 var protein_pris = 500;
 var airpods_pris = 1500;
@@ -21,6 +22,7 @@ var belte_pris = 100000;
 var sarms_pris = 200000;
 var sleeves_pris = 1000000;
 var creatine_pris = 2000000;
+var kg2_pris = 100000    ;
 var passiv = 0;
 var power = 0;
 var gold_dumbbell = false;
@@ -31,7 +33,7 @@ var roids_fare = 0;
 // Her defineres variabler
 
 
-// Golden dumbbell
+// Golden dumbbell funksjon
 // Fredrik hjalp med dette
 setInterval(function () {
     var sjanse = Math.floor((Math.random() * 100) + 1);
@@ -71,14 +73,22 @@ setInterval(function () {
 }, 5000)
 
 function golden_dumbell() {
+    // Max og Minimum penger
     max = Math.floor(penger / 3)
     min = Math.floor(penger / 10)
     if (gold_dumbbell) {
 
     } else {
-        var random_peng = Math.floor(Math.random() * (max - min + 1)) + min;
-        penger = penger + random_peng;
-        formue = formue + random_peng
+        // Hvis penger er mindre enn 200 får man tilfeldig penger fra 50 til 200.
+        if (penger <= 200) {
+            var random_peng = Math.floor(Math.random() * (200 - 50 + 1)) + 50;
+            penger += random_peng;
+            formue += random_peng;
+        } else { 
+            var random_peng = Math.floor(Math.random() * (max - min + 1)) + min;
+            penger = penger + random_peng;
+            formue = formue + random_peng;
+        }
         // Kopiert fra StackOverflow
         var myNode = document.getElementById("1");
         while (myNode.firstChild) {
@@ -101,7 +111,7 @@ function golden_dumbell() {
 // Golden dumbbell
 
 
-// Lagring
+// funksjon som lagrer spillet
 window.onload = function load() {
     if(parseInt(localStorage.getItem("saved")) === version){
     if(localStorage.getItem("saved") !== null){
@@ -118,6 +128,7 @@ window.onload = function load() {
             boughtp = parseInt(localStorage.getItem("boughtp"));
             boughtpw = parseInt(localStorage.getItem("boughtpw"));
             boughtcreatine = parseInt(localStorage.getItem("boughtcreatine"));
+            bought2kg = parseInt(localStorage.getItem("bought2kg"));
             pwo_pris = parseInt(localStorage.getItem("pwo_pris"));
             protein_pris = parseInt(localStorage.getItem("protein_pris"));
             airpods_pris = parseInt(localStorage.getItem("airpods_pris"));
@@ -126,6 +137,7 @@ window.onload = function load() {
             sarms_pris = parseInt(localStorage.getItem("sarms_pris"));
             sleeves_pris = parseInt(localStorage.getItem("sleeves_pris"));
             creatine_pris = parseInt(localStorage.getItem("creatine_pris"));
+            kg2_pris = parseInt(localStorage.getItem("kg2_pris"));
             passiv = parseInt(localStorage.getItem("passiv"));
             boughtroids = parseInt(localStorage.getItem("boughtroids"));
             boughtbelt = parseInt(localStorage.getItem("boughtbelt"));
@@ -155,6 +167,7 @@ window.onload = function load() {
       localStorage.setItem("boughtsarms", boughtsarms);
       localStorage.setItem("boughtsleeves", boughtsleeves);
       localStorage.setItem("boughtcreatine", boughtcreatine);
+      localStorage.setItem("bought2kg", bought2kg);
       localStorage.setItem("belte_pris", belte_pris);
       localStorage.setItem("pwo_pris", pwo_pris);
       localStorage.setItem("protein_pris", protein_pris);
@@ -163,6 +176,7 @@ window.onload = function load() {
       localStorage.setItem("sarms_pris", sarms_pris);
       localStorage.setItem("sleeves_pris", sleeves_pris);
       localStorage.setItem("creatine_pris", creatine_pris);
+      localStorage.setItem("kg2_pris", kg2_pris);
       localStorage.setItem("passiv", passiv);
       localStorage.setItem("power", power);
   
@@ -171,7 +185,7 @@ window.onload = function load() {
   }
 // Lagring
 
-// Reset
+// Reset funksjon som reseter alle variabler og starter spillet på nytt
 function reset() {
     penger = 0;
     formue = 0;
@@ -186,6 +200,7 @@ function reset() {
     boughtsarms = 0;
     boughtsleeves = 0;
     boughtcreatine = 0;
+    bought2kg = 0;
     pwo_pris = 100;
     protein_pris = 500;
     airpods_pris = 1500;
@@ -194,6 +209,7 @@ function reset() {
     sarms_pris = 200000;
     sleeves_pris = 1000000;
     creatine_pris = 2000000;
+    kg2_pris = 100000;
     passiv = 0;
     power = 0;
     
@@ -211,6 +227,7 @@ function reset() {
     localStorage.setItem("boughtsarms", boughtsarms);
     localStorage.setItem("boughtsleeves", boughtsleeves);
     localStorage.setItem("boughtcreatine", boughtcreatine);
+    localStorage.setItem("bought2kg", bought2kg);
     localStorage.setItem("pwo_pris", pwo_pris);
     localStorage.setItem("protein_pris", protein_pris);
     localStorage.setItem("airpods_pris", airpods_pris);
@@ -219,6 +236,7 @@ function reset() {
     localStorage.setItem("sarms_pris", sarms_pris);
     localStorage.setItem("sleeves_pris", sleeves_pris);
     localStorage.setItem("creatine_pris", creatine_pris);
+    localStorage.setItem("kg2_pris", kg2_pris);
     localStorage.setItem("passiv", passiv);
     localStorage.setItem("power", power);
     window.location.reload();
@@ -226,7 +244,7 @@ function reset() {
 
 // Reset
 
-// klikk funksjon
+// funksjon som skjer når du trykker på dumbbell og gir deg penger
 function klikk() {   
     penger = penger + x + testo;
     formue = formue + x + testo;
@@ -235,52 +253,49 @@ function klikk() {
 
 
 }
-
 // Butikk funskjoner
-function airpods() {
 
-        if (penger >= airpods_pris) {
-            penger = penger - airpods_pris
-            airpods_pris *= 1.3;
-            testo += 50;
-            boughta += 1;
-            document.getElementById("airpods_mld").innerHTML = "Du har kjøpt airpods!";
-            new Audio("sound/pump.mp3").play();
-    
+// funksjon som skjer når du trykker på pwo i butikken og spiller av en lyd
+function pwo() { 
+    if (penger >= pwo_pris) {
+        penger = penger - pwo_pris
+        pwo_pris *= 1.1;
+        testo += 2;
+        boughtpw += 1;
+        document.getElementById("pwo_mld").innerHTML = "Du har kjøpt PWO!";
+        //takk noa
+        new Audio("sound/lightweight_baby.mp3").play();   
     }
-    
 }
+
+// funksjon som skjer når du trykker på proteinpulver i butikken og spiller av en lyd
 function protein() {
 
-        if (penger >= protein_pris) {
-            penger = penger - protein_pris
-            protein_pris *= 1.1;
-            testo += 10;
-            boughtp += 1;
-            document.getElementById("protein_mld").innerHTML = "Du har kjøpt protein pulver!";
-            new Audio("sound/protein.mp3").play();
-        }
+    if (penger >= protein_pris) {
+        penger = penger - protein_pris
+        protein_pris *= 1.1;
+        testo += 10;
+        boughtp += 1;
+        document.getElementById("protein_mld").innerHTML = "Du har kjøpt protein pulver!";
+        new Audio("sound/protein.mp3").play();
+    }
+}
 
+// funksjon som skjer når du trykker på airpods i butikken og spiller av musikk
+function airpods() {
+
+    if (penger >= airpods_pris) {
+        penger = penger - airpods_pris
+        airpods_pris *= 1.3;
+        testo += 50;
+        boughta += 1;
+        document.getElementById("airpods_mld").innerHTML = "Du har kjøpt airpods!";
+        new Audio("sound/pump.mp3").play();
+    }
 }
-function pwo() {
-   
-        
-        if (penger >= pwo_pris) {
-            penger = penger - pwo_pris
-            pwo_pris *= 1.1;
-            testo += 2;
-            boughtpw += 1;
-            document.getElementById("pwo_mld").innerHTML = "Du har kjøpt PWO!";
-            //takk noa
-            new Audio("sound/lightweight_baby.mp3").play();
-            
-        }
-    
-    
-    
-}
+
+// funksjon som skjer når du trykker på steroide sprøyten i butikken
 function roids(){
-
         if ( penger >= roids_pris) {
             penger = penger - roids_pris
             roids_pris*= 1.2;
@@ -292,12 +307,14 @@ function roids(){
             new Audio("sound/").play();
         }
         if (boughtroids >= 25) {
-            power = boughtroids *100
+            power += 10000
         }
         if (roids_fare >= 20) {
-            
+
         }
 }
+
+// funksjon som skjer når du trykker på belte i butikken
 function belte() {
 
     if (penger >= belte_pris) {
@@ -310,6 +327,19 @@ function belte() {
     }
 }
 
+// funksjon som skjer når du trykker på to kilos vekten i butikken
+function tokg() {
+    if (penger >= kg2_pris) {
+        penger = penger - kg2_pris
+        power *= 2
+        testo += 500
+        bought2kg += 1
+        
+    }
+
+}
+
+// funksjon som skjer når du trykker på sarms i butikken
 function sarms() {
     
     if (penger >= sarms_pris) {
@@ -343,7 +373,7 @@ function creatine(){
         testo += 10;
         boughtcreatine += 1;
         power = boughtcreatine *10000;
-        document.getElementById("creatine_mld").innerHTML = "Du har kjøpt Creatin!";
+        document.getElementById("creatine_mld").innerHTML = "Du har kjøpt kreatin!";
         new Audio("sound/").play();
     }
 }
@@ -357,6 +387,7 @@ setInterval(function(){
 }, 10);
 // Kjøres hvert millisekund
 
+// Printer ut pris og antall man har kjøpt av vare
 setInterval(function(){
     document.getElementById("pwo_pris").innerHTML = Math.floor(pwo_pris);
     document.getElementById("protein_pris").innerHTML = Math.floor(protein_pris)
@@ -366,6 +397,7 @@ setInterval(function(){
     document.getElementById("sarms_pris").innerHTML = Math.floor(sarms_pris)
     document.getElementById("sleeves_pris").innerHTML = Math.floor(sleeves_pris)
     document.getElementById("creatine_pris").innerHTML = Math.floor(creatine_pris)
+    document.getElementById("2kg_pris").innerHTML = Math.floor(kg2_pris)
     document.getElementById("pwo_mengde").innerHTML = Math.floor(boughtpw)
     document.getElementById("protein_mengde").innerHTML = Math.floor(boughtp)
     document.getElementById("airpods_mengde").innerHTML = Math.floor(boughta)
@@ -374,6 +406,15 @@ setInterval(function(){
     document.getElementById("sarms_mengde").innerHTML = Math.floor(boughtsarms)
     document.getElementById("sleeves_mengde").innerHTML = Math.floor(boughtsleeves)
     document.getElementById("creatine_mengde").innerHTML = Math.floor(boughtcreatine)
+
+    // Fjerner 2kg fra butikken
+    if (bought2kg >= 1) {
+        document.getElementById("bilde").innerHTML = ' <img onclick="klikk()" id="img" src="img/kg2.png" alt="" width="400" height="350">'
+        var myNode = document.getElementById("3");
+        var myobj = document.getElementById("2kg");
+        myobj.remove();
+    }
+
 
 }, 10);
 // Kjøres hvert millisekund

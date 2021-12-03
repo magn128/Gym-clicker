@@ -25,20 +25,48 @@ body {
 #innhold h1{
 
     color: purple;
-    text-shadow: rebeccapurple 2px 2px 3px;
-}
 
-.vare {
+}
+.vare2 {
     width: 210px;
-    height: 300px;
+    height: 320px;
     border: 1px solid black;
     display: flex;
     justify-content: center;
     flex-direction: column;
     display: flex;
-
+    
 
 }
+.vare {
+    width: 210px;
+    height: 320px;
+    border: 1px solid black;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    display: flex;
+    
+
+}
+
+  .tooltiptext {
+    visibility: hidden;
+    width: 120px;
+    background-color: black;
+    color: #fff;
+    text-align: center;
+    border-radius: 6px;
+    padding: 5px 0;
+    /* Position the tooltip */
+    position: absolute;
+    z-index: 10 ;
+    top: 30px;
+    right: 15%;
+  }
+  .vare:hover .tooltiptext {
+    visibility: visible;
+  }
 
 img {
     width: 200px;
@@ -81,6 +109,7 @@ img {
 
 #golden {
     color: gold;
+
 }
 
 
